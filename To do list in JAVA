@@ -1,0 +1,61 @@
+package collectiontask;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class CollectionTask {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList li = new ArrayList();
+        int opt, upd_index, rem_index;
+        String item, itemName, upd_val;
+        System.out.println("Welcome to your daliy list creation");
+        System.out.println("-----------------------------------");
+        while(true){
+            System.out.println(" ");
+            System.out.println("1-\t Add an item\n2-\t Remove an item\n3-\t Update an item\n4-\t Show item list\n5-\t Quit");
+            System.out.println(" ");
+            System.out.print("Enter an option to proceed: ");
+            opt = sc.nextInt();
+            System.out.println("");
+        if(opt == 1){
+            System.out.println("Enter your items, write 'end' after complete the list. ");
+            while(true){
+                System.out.print(" ");
+            item = sc.next();
+            li.add(item);
+            if("end".equals(item)){
+                break;
+            }
+            }
+            }else if(opt == 2){
+                System.out.print("Please enter Line Item# to remove from the list: ");
+                rem_index = sc.nextInt();
+                int rem = rem_index - 1;
+                li.remove(rem);
+                System.out.println(" ");
+                System.out.println("Your item has been removed");
+            }else if(opt == 3){
+                System.out.println("Please enter Line item# and new value to update on the list:");
+                System.out.print("Line item#: ");
+                upd_index = sc.nextInt();
+                int upd = upd_index - 1;
+                System.out.print("New value: ");
+                upd_val = sc.next();
+                li.set(upd, upd_val);
+                System.out.println(" ");
+                System.out.println("Your item has been updated.");
+            }
+        else if(opt == 4){
+                System.out.println("To do list");
+                int sno;
+                for (int i = 0; i<li.size(); i++){
+                    sno = i+1;
+                    itemName = (String) li.get(i);
+                    System.out.println(sno +"-"+ itemName);
+                }
+            }else 
+                break;
+        }   
+    }   
+}
