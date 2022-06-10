@@ -24,18 +24,26 @@ public class CollectionTask {
                 System.out.print(" ");
             item = sc.next();
             li.add(item);
+
             if("end".equals(item)){
+                li.remove("end");
                 break;
             }
             }
             }else if(opt == 2){
+                if(li.size() == 0){
+                        System.out.println("There is no item on the list.");
+                    } else {
                 System.out.print("Please enter Line Item# to remove from the list: ");
                 rem_index = sc.nextInt();
                 int rem = rem_index - 1;
                 li.remove(rem);
                 System.out.println(" ");
                 System.out.println("Your item has been removed");
-            }else if(opt == 3){
+            }}else if(opt == 3){
+                if(li.size() == 0){
+                        System.out.println("There is no item on the list.");
+                    } else {
                 System.out.println("Please enter Line item# and new value to update on the list:");
                 System.out.print("Line item#: ");
                 upd_index = sc.nextInt();
@@ -45,17 +53,25 @@ public class CollectionTask {
                 li.set(upd, upd_val);
                 System.out.println(" ");
                 System.out.println("Your item has been updated.");
-            }
+            }}
         else if(opt == 4){
+            if(li.size() == 0){
+                        System.out.println("There is no item on the list.");
+                    } else {
                 System.out.println("To do list");
                 int sno;
                 for (int i = 0; i<li.size(); i++){
                     sno = i+1;
                     itemName = (String) li.get(i);
                     System.out.println(sno +"-"+ itemName);
-                }
-            }else 
+                }}
+            }else {
+            System.out.print("Are you sure, you want to quit? Y/N _");
+                String ans = sc.next();
+                if("Y".equals(ans)){
                 break;
-        }   
+                }
+                
+        }   }
     }   
 }
